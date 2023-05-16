@@ -1609,7 +1609,7 @@ if test "x$enable_mmcefpsdanon" = "xyes"; then
 #AC_CHECK_LIB([ssl],[SSL_library_init], [], [AC_MSG_ERROR([OpenSSL libraries required])])
 #AC_CHECK_HEADERS([openssl/crypto.h openssl/x509.h openssl/pem.h openssl/ssl.h openssl/err.h],[],[AC_MSG_ERROR([OpenSSL headers required])])
 fi
-AM_CONDITIONAL(ENABLE_mmcefpsdanon, test x$enable_mmcefpsdanon = xyes)
+AM_CONDITIONAL(ENABLE_MMCEFPSDANON, test x$enable_mmcefpsdanon = xyes)
 
 # mmrfc5424addhmac
 AC_ARG_ENABLE(mmrfc5424addhmac,
