@@ -276,7 +276,7 @@ endif
 
 if ENABLE_MMCEFPSDANON
 SUBDIRS += contrib/mmcefpsdanon
-enfid
+endif
 
 if ENABLE_MMRFC5424ADDHMAC
 SUBDIRS += contrib/mmrfc5424addhmac
