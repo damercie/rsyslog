@@ -1593,6 +1593,23 @@ AC_ARG_ENABLE(mmpstrucdata,
 )
 AM_CONDITIONAL(ENABLE_MMPSTRUCDATA, test x$enable_mmpstrucdata = xyes)
 
+# mmcefpsdanon
+AC_ARG_ENABLE(mmcefpsdanon,
+        [AS_HELP_STRING([--enable-mmcefpsdanon],[Enable building mmcefpsdanon support @<:@default=no@:>@])],
+        [case "${enableval}" in
+         yes) enable_mmcefpsdanon="yes" ;;
+          no) enable_mmcefpsdanon="no" ;;
+           *) AC_MSG_ERROR(bad value ${enableval} for --enable-mmcefpsdanon) ;;
+         esac],
+        [enable_mmcefpsdanon=no]
+)
+if test "x$enable_mmcefpsdanon" = "xyes"; then
+	PKG_CHECK_MODULES(OPENSSL, openssl >= 0.9.7)
+#AC_CHECK_LIB([crypto],[CRYPTO_new_ex_data], [], [AC_MSG_ERROR([OpenSSL libraries required])])
+#AC_CHECK_LIB([ssl],[SSL_library_init], [], [AC_MSG_ERROR([OpenSSL libraries required])])
+#AC_CHECK_HEADERS([openssl/crypto.h openssl/x509.h openssl/pem.h openssl/ssl.h openssl/err.h],[],[AC_MSG_ERROR([OpenSSL headers required])])
+fi
+AM_CONDITIONAL(ENABLE_mmcefpsdanon, test x$enable_mmcefpsdanon = xyes)
 
 # mmrfc5424addhmac
 AC_ARG_ENABLE(mmrfc5424addhmac,
@@ -2802,6 +2819,7 @@ AC_CONFIG_FILES([Makefile \
 		contrib/omczmq/Makefile \
 		contrib/imczmq/Makefile \
 		contrib/mmsequence/Makefile \
+                contrib/mmcefpsdanon/Makefile \
 		contrib/mmrfc5424addhmac/Makefile \
 		contrib/pmcisconames/Makefile \
 		contrib/omhttpfs/Makefile \
@@ -2910,6 +2928,7 @@ echo "    mmgrok module will be compiled:           $enable_mmgrok"
 echo "    mmjaduit module will be compiled:         $enable_mmaudit"
 echo "    mmsnmptrapd module will be compiled:      $enable_mmsnmptrapd"
 echo "    mmutf8fix enabled:                        $enable_mmutf8fix"
+echo "    mmcefpsdanon enabled:                     $enable_mmcefpsdanon"
 echo "    mmrfc5424addhmac enabled:                 $enable_mmrfc5424addhmac"
 echo "    mmpstrucdata enabled:                     $enable_mmpstrucdata"
 echo "    mmsequence enabled:                       $enable_mmsequence"

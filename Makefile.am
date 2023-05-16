@@ -274,6 +274,10 @@ if ENABLE_MMPSTRUCDATA
 SUBDIRS += plugins/mmpstrucdata
 endif
 
+if ENABLE_MMCEFPSDANON
+SUBDIRS += contrib/mmcefpsdanon
+enfid
+
 if ENABLE_MMRFC5424ADDHMAC
 SUBDIRS += contrib/mmrfc5424addhmac
 endif
